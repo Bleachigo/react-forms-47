@@ -10,7 +10,9 @@ export const Form = () => {
       password: '',
       confirm: '',
     },
+
     validationSchema: userSchema,
+
     onSubmit: (values, { resetForm }) => {
       console.log(values);
       resetForm();
