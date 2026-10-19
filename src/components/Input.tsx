@@ -11,6 +11,7 @@ interface InputProps {
 export const Input = ({ label, className, ...props }: InputProps) => {
   const [field, meta] = useField(props);
   const hasError = meta.touched && meta.error;
+  const errId = `${props.name}-error`;
 
   return (
     <div className="wrapper">
@@ -20,11 +21,15 @@ export const Input = ({ label, className, ...props }: InputProps) => {
       <input
         {...field}
         {...props}
-        className={`${className ?? ''} ${hasError ? 'input-error' : ''}`}
         id={props.name}
+        aria-invalid={hasError ? true : undefined}
+        aria-describedby={hasError ? errId : undefined}
+        className={`${className ?? ''} ${hasError ? 'input-error' : ''}`}
       />
       {meta.touched && meta.error && (
-        <p className="error-message">{meta.error}</p>
+        <p className="error-text" role="alert">
+          {meta.error}
+        </p>
       )}
     </div>
   );
