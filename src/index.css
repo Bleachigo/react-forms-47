@@ -142,3 +142,8 @@ p {
   font-size: 12px;
   white-space: nowrap;
 }
+
+.users-list {
+  color: var(--accent);
+  width: fit-content;
+}
