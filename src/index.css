@@ -135,7 +135,7 @@ p {
   border-radius: 2px;
 }
 
-.error-message {
+.error-text {
   position: absolute;
   left: 105%;
   bottom: 0;
